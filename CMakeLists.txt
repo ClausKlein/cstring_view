@@ -2,6 +2,10 @@
 
 cmake_minimum_required(VERSION 3.25...4.2)
 
+if(NOT DEFINED CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 23)
+endif()
+
 project(
     beman.cstring_view # CMake Project Name, which is also the name of the top-level
     # targets (e.g., library, executable, etc.).
