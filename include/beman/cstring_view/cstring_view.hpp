@@ -110,7 +110,7 @@ class basic_cstring_view {
 
     // [cstring.view.cons], construction and assignment
     constexpr basic_cstring_view() noexcept : size_() {
-        static const charT empty_string[1]{};
+        // XXX static const charT empty_string[1]{};
         data_ = std::data(empty_string);
     }
     constexpr basic_cstring_view(const basic_cstring_view&) noexcept            = default;
@@ -313,6 +313,8 @@ class basic_cstring_view {
   private:
     const_pointer data_; // exposition only
     size_type     size_; // exposition only
+
+    static constexpr charT empty_string[1]{}; // NOLINT
 };
 
 inline namespace literals {
